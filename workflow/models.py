@@ -11,6 +11,8 @@ class Workflow(models.Model):
     submitted_by = CharField(max_length=20, default="guest")  # TODO replace with FK to user.
     email = EmailField()
     submitted_time = DateTimeField(default=datetime.now())
+    description = CharField(max_length=200, null=True)
+    task_id = CharField(max_length=100, null=True)
 
 
 class SequenceFile(models.Model):

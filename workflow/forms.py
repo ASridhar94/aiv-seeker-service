@@ -6,7 +6,7 @@ from workflow.models import Workflow, SequenceFile
 class WorkflowModelForm(ModelForm):
     class Meta:
         model = Workflow
-        fields = ['email']
+        fields = ['email', 'description']
 
 
 class SequenceFileModelForm(ModelForm):
