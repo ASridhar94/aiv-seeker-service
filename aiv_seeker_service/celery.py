@@ -1,6 +1,10 @@
 from __future__ import absolute_import, unicode_literals
 
 import os
+import sys
+
+from celery.signals import after_setup_logger
+import logging
 
 from celery import Celery
 
@@ -17,6 +21,15 @@ app.config_from_object('django.conf:settings', namespace='CELERY')
 
 # Load task modules from all registered Django app configs.
 app.autodiscover_tasks()
+
+
+@after_setup_logger.connect()
+def logger_setup_handler(logger, **kwargs):
+    handler = logging.StreamHandler(sys.stdout)
+    handler.setLevel(logging.DEBUG)
+    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')  # custom formatter
+    handler.setFormatter(formatter)
+    logger.addHandler(handler)
 
 
 @app.task(bind=True)
