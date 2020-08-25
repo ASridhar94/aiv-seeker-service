@@ -9,7 +9,7 @@ from workflow.tasks import start_aiv_seeker
 
 
 def index(request):
-    return HttpResponse("Hello, world.")
+    return render(request, "intro.html")
 
 
 def submit_workflow(request):

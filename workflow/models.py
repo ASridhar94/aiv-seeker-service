@@ -1,5 +1,6 @@
 from datetime import datetime
 
+import django
 from django.db import models
 from django.db.models import CharField, EmailField, DateTimeField, ManyToManyField
 
@@ -10,7 +11,7 @@ class Workflow(models.Model):
                        default="SCHEDULED")
     submitted_by = CharField(max_length=20, default="guest")  # TODO replace with FK to user.
     email = EmailField()
-    submitted_time = DateTimeField(default=datetime.now())
+    submitted_time = DateTimeField(default=django.utils.timezone.now)
     description = CharField(max_length=200, null=True)
     task_id = CharField(max_length=100, null=True)
 

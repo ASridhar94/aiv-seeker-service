@@ -2,12 +2,11 @@
 
 #### Run locally
 
-##### Run Django service
 ```shell script
-python manage.py runserver
+docker-compose build
+docker-compose up
 ```
 
-##### Start Celery worker
-```shell script
-celery -A aiv_seeker_service worker -l info
-```
+The Django web server runs at: http://localhost:8000
+
+The Flower monitoring portal runs at: http://localhost:5555

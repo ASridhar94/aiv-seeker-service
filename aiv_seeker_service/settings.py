@@ -25,7 +25,7 @@ SECRET_KEY = 'dq)^&)0!a&c(t06q6g#)1m-8s#4c8!n#$og=r=1*1$0vru=rtd'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 
 # Application definition
@@ -77,8 +77,12 @@ WSGI_APPLICATION = 'aiv_seeker_service.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'aiv_seeker',
+        'USER': 'admin',
+        'PASSWORD': 'aivseekerservice123',
+        'HOST': 'postgres',
+        'PORT': '5432'
     }
 }
 
@@ -120,5 +124,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = '/opt/static/'
+MEDIA_ROOT = '/opt/media/'
 
-CELERY_RESULT_BACKEND = 'redis'
+CELERY_BROKER_URL = 'redis://redis:6379'
+CELERY_RESULT_BACKEND = 'redis://redis:6379'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TASK_SERIALIZER = 'json'
