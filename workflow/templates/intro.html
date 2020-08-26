@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,23 +8,44 @@
     <title>AIV Seeker Service</title>
 </head>
 <body>
+<div class="container">
+           <nav class="navbar navbar-light bg-faded rounded mb-3">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-toggleable-md" id="navbarCollapse">
+            <ul class="nav navbar-nav text-md-center justify-content-md-between">
+              <li class="nav-item active">
+                <a class="nav-link" href="/workflows/">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Projects</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+              </li>
+            </ul>
+          </div>
+          <form class="form-inline">
+    <input class="form-control mr-sm-2" type="Email" placeholder="Email" aria-label="Email">
+        <input class="form-control mr-sm-2" type="Password" placeholder="Password" aria-label="Password">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Submit</button>
+  </form>
+        </nav>
+</div>
 <div class="container text-center">
-
-      <div class="masthead">
-        <h1 class="text-muted">AIV Seeker Service</h1>
-      </div>
 
       <!-- Jumbotron -->
       <br><div class="jumbotron">
         <h1>Welcome to AIV Seeker Service</h1>
-        <p class="lead">AIV Seeker Service is optimized for routine genomic analysis of Avian Influenza Virus from metagenomics data</p>
+        <p class="lead">AIV Seeker Service is optimized for routine genomic analysis of Avian Influenza Virus from NGS data</p>
       </div>
 
-      <!-- Example row of columns -->
+
       <div class="row">
         <div class="col-lg-4">
           <h2>Sequence Assembly</h2>
-          <p>.... </p>
+          <p>SPAdes Assembly and QUAST quality assessment </p>
           <p><a class="btn btn-primary" href="#" role="button">Submit here &raquo;</a></p>
         </div>
         <div class="col-lg-4">
@@ -39,11 +61,16 @@
       </div>
 
       <!-- Site footer -->
-      <footer class="footer">
+      <footer class="footer mt-auto py-3">
         <br> <br> <br><p> https://github.com/duanjunhyq/AIV_seeker</p>
       </footer>
+    <div class="row">
+              <div class="col-3"><img src="{% static "images/BCCDC_Logo.png"%}" class="rounded float-left" style="max-width: 150px;max-height:300px;width: auto;height: auto;"></div>
+              <div class="col-3"><img src="{% static "images/UBC_logo.png"%}" class="rounded mx-auto d-block" style="max-width: 150px;max-height:300px;width: auto;height: auto;" ></div>
+              <div class="col-3"><img src="{% static "images/CWHC_logo.jpg"%}" class="rounded float-right" style="max-width: 150px;max-height:300px;width: auto;height: auto;" ></div>
+          </div>
+</div>
 
-    </div> <!-- /container -->
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>

@@ -1,31 +1,63 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
+     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <title>AIV Seeker Service</title>
-
 </head>
 <p>
 
+<div class="container">
+           <nav class="navbar navbar-light bg-faded rounded mb-3">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-toggleable-md" id="navbarCollapse">
+            <ul class="nav navbar-nav text-md-center justify-content-md-between">
+              <li class="nav-item active">
+                <a class="nav-link" href="/workflows/">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Projects</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+              </li>
+            </ul>
+          </div>
+          <form class="form-inline">
+    <input class="form-control mr-sm-2" type="Email" placeholder="Email" aria-label="Email">
+        <input class="form-control mr-sm-2" type="Password" placeholder="Password" aria-label="Password">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Submit</button>
+  </form>
+        </nav>
+</div>
+<body>
 <div class="container-fluid text-center">
 <h1>
-    <b>AIV Seeker</b>
-</h1>
-    <br><img src="{% static "images/aishu1AIV.jpg" %}" width=100% margin="0" height=50% class="rounded-pill"/>
+    <button type="button" class="btn btn-danger btn-lg btn-block">AIV Seeker Service</button>
+</h1><br></div>
+<div> <img src="{% static "images/aishu1AIV.jpg" %}" width=100% style="height : 350px" class= "rounded-pill"> </div>
 <br>
-    </div>
-
 <br>
-
+<div class="container-fluid text-center">
 <form action="/workflows/submit/" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form }}
     {{ file_form }}
     <input type="submit" value="Submit">
 </form>
+    <footer class="footer mt-auto py-3">
+        <br> <br> <br><p> https://github.com/duanjunhyq/AIV_seeker</p>
+      </footer>
+    <div class="row">
+              <div class="col-3"><img src="{% static "images/BCCDC_Logo.png"%}" class="rounded float-left" style="max-width: 150px;max-height:300px;width: auto;height: auto;"></div>
+              <div class="col-3"><img src="{% static "images/UBC_logo.png"%}" class="rounded mx-auto d-block" style="max-width: 150px;max-height:300px;width: auto;height: auto;" ></div>
+              <div class="col-3"><img src="{% static "images/CWHC_logo.jpg"%}" class="rounded float-right" style="max-width: 150px;max-height:300px;width: auto;height: auto;" ></div>
+          </div>
+    </div>
 
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

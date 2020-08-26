@@ -1,7 +1,12 @@
+import os
+
+from django.conf import settings
 from django.core.exceptions import MultipleObjectsReturned
 from django.shortcuts import render
 
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, Http404
+from django.views.decorators.clickjacking import xframe_options_exempt, xframe_options_sameorigin
+from django.views.static import serve
 
 from workflow.forms import WorkflowModelForm, SequenceFileModelForm
 from workflow.models import SequenceFile, Workflow
@@ -45,6 +50,16 @@ def show_workflow(request, workflow_id):
         return _show_error(request)
 
     return render(request, 'workflow_status.html', {"workflow_id": workflow_id, "status": wf.status, "output": ""})
+
+
+def show_output(request, file_path):
+    # TODO Replace this with static serve system.
+    full_path = os.path.join(settings.STATIC_ROOT, 'output', file_path)
+    print(f"Serve: {full_path}")
+    if not os.path.exists(full_path):
+        return Http404()
+
+    return serve(request, os.path.basename(full_path), os.path.dirname(full_path))
 
 
 def submitted(request, workflow_id):
